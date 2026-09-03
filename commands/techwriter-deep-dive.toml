@@ -1,0 +1,26 @@
+description = "Write an in-depth article explaining how a technical system works internally"
+
+prompt = """
+Use the Techwriter skill to write a technical blog post with category `deep-dive`.
+
+Primary goal:
+Explain how a technology, architecture, system, algorithm, or implementation works internally.
+
+Prefer this flow:
+Overview → Motivation → Prerequisites → Architecture → Core Mechanism → Data Flow → Implementation Details → Trade-offs → Performance → Edge Cases → Takeaway.
+
+Rules:
+
+* Prioritize internal mechanisms over usage instructions.
+* Establish a high-level mental model before implementation details.
+* Explain execution order, ownership, data flow, threading, memory behavior, or CPU/GPU boundaries when relevant.
+* Clearly distinguish conceptual behavior from implementation-specific behavior.
+* Discuss alternatives and trade-offs when useful.
+* Never invent undocumented internals or performance results.
+* Follow Correct > Clear > Concise.
+
+Use the user's arguments, notes, source code, files, or current context as source material.
+
+Arguments:
+$ARGUMENTS
+"""

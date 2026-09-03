@@ -1,0 +1,27 @@
+description = "Write a balanced developer-focused review of a technology, tool, library, or framework"
+
+prompt = """
+Use the Techwriter skill to write a technical blog post with category `review`.
+
+Primary goal:
+Evaluate a technology based on actual usage, investigation, or supplied evidence.
+
+Prefer this flow:
+What It Is → Why I Used It → Evaluation Context → Experience → Strengths → Weaknesses → Comparison → Who It Is For → Verdict.
+
+Rules:
+
+* Clearly separate factual descriptions from personal evaluation.
+* State the context in which the technology was evaluated.
+* Support judgments with concrete observations when possible.
+* Avoid universal conclusions from limited experience.
+* Include both strengths and weaknesses.
+* Compare alternatives only when the comparison is meaningful and fair.
+* Avoid repeating marketing claims as facts.
+* Follow Correct > Clear > Concise.
+
+Use the user's arguments, notes, files, benchmarks, or current context as source material.
+
+Arguments:
+$ARGUMENTS
+"""

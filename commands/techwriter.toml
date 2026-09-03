@@ -1,0 +1,20 @@
+description = "Write or improve a technical blog post using the Techwriter workflow"
+
+prompt = """
+Use the Techwriter skill to handle the user's request.
+
+Use the default article category unless the user explicitly specifies another category.
+
+Follow the complete Techwriter workflow:
+Planning → Drafting → Editing → Optimization → Self Review.
+
+Apply the 3C principles:
+Correct > Clear > Concise.
+
+Preserve the author's technical experience, reasoning, terminology, and intent when source material is provided.
+
+Use the user's arguments, notes, files, or current context as the article source.
+
+Arguments:
+$ARGUMENTS
+"""

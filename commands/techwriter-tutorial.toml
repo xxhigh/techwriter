@@ -1,0 +1,26 @@
+description = "Turn technical material into a reproducible step-by-step tutorial"
+
+prompt = """
+Use the Techwriter skill to write a technical blog post with category `tutorial`.
+
+Primary goal:
+Help the reader reproduce a specific technical result.
+
+Prefer this flow:
+Goal → Prerequisites → Overview → Steps → Result → Common Issues → Conclusion.
+
+Rules:
+
+* Optimize for reproducibility.
+* State relevant environment, versions, dependencies, and prerequisites.
+* Present implementation steps in a logical execution order.
+* Do not omit setup required for the result.
+* Explain why important steps are necessary.
+* Do not claim code is runnable unless that can reasonably be verified.
+* Follow Correct > Clear > Concise.
+
+Use the user's arguments, notes, files, or current context as source material.
+
+Arguments:
+$ARGUMENTS
+"""

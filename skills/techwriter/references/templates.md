@@ -1,433 +1,787 @@
-# 티스토리 블로그 글 템플릿 모음
+# Article Templates
 
-각 글 유형에 맞는 구조화된 템플릿입니다.
+This document defines the recommended article structure for each category.
+
+Templates are guidelines, not rigid rules.
+Adapt the structure when the source material requires a different flow.
+
+Always prioritize:
+
+**Correct > Clear > Concise**
+
+Do not add sections that provide no value.
 
 ---
 
-## 1. TIL (Today I Learned) 템플릿
+# 1. default
 
-짧고 핵심적인 학습 기록용
+Use this template when the user does not specify a category or when the content does not clearly match another category.
+
+## Goal
+
+Explain a technical topic using the structure that best fits the source material.
+
+## Recommended Structure
+
+```text
+Title
+
+Introduction
+→ Context
+→ Core Concept
+→ Explanation
+→ Example or Implementation
+→ Takeaway
+```
+
+## Template
 
 ```markdown
-# [TIL] {주제} - {핵심 내용 한 줄}
+# {Title}
 
-## 날짜
-YYYY-MM-DD
+{Brief introduction explaining the topic and why it matters.}
 
-## 학습 내용
-오늘 배운 핵심 개념을 1-2문장으로 요약
+## {Context or Problem}
 
-## 코드 예제
+{Introduce the situation, motivation, or background needed to understand the topic.}
 
-```언어
-// 핵심 코드
+## {Core Concept}
+
+{Explain the central technical concept.}
+
+## {Explanation}
+
+{Explain how the concept works, including relevant details and reasoning.}
+
+## {Example or Implementation}
+
+{Provide a concrete example, code, diagram, or implementation details when useful.}
+
+## Takeaway
+
+{Summarize the most important insight the reader should remember.}
 ```
 
-## 설명
-- 포인트 1
-- 포인트 2
+## Guidelines
 
-## 참고 자료
-- [자료명](URL)
-
-## 태그
-#TIL #{기술스택} #{세부주제}
-```
+- Prefer a natural flow over a fixed structure.
+- Add or remove sections depending on the topic.
+- Keep prerequisite explanations proportional to the target reader.
+- Do not force the article into tutorial or troubleshooting format.
+- Use examples when they improve understanding.
+- Keep the article focused on one primary takeaway.
 
 ---
 
-## 2. 튜토리얼 템플릿
+# 2. TIL
 
-단계별 가이드 작성용
+TIL stands for **Today I Learned**.
+
+Use this category for short articles that record a useful technical discovery, concept, behavior, or lesson.
+
+## Goal
+
+Help the reader quickly understand one useful thing the author learned.
+
+## Recommended Structure
+
+```text
+Title
+→ Context
+→ What I Learned
+→ Example
+→ Takeaway
+```
+
+## Template
 
 ```markdown
-# {기술명} {목표} 완벽 가이드
+# {Title}
 
-## 개요
-이 글에서는 {무엇을} {어떻게} 하는 방법을 다룹니다.
+{Briefly explain what was learned and in what context.}
 
-**예상 소요 시간**: X분
-**난이도**: 초급/중급/고급
+## What I Learned
 
-## 전제 조건
-- Node.js 16 이상 설치
-- 기본적인 JavaScript 지식
-- (기타 필요 사항)
+{Explain the main technical insight.}
 
-## 최종 결과물
-(완성된 결과의 스크린샷 또는 설명)
+## Example
 
----
+{Provide a short example, code snippet, command, or comparison when useful.}
 
-## 1단계: {단계 제목}
+## Why It Matters
 
-### 설명
-이 단계에서는 {무엇을} 합니다.
+{Briefly explain why this knowledge is useful or when it can be applied.}
 
-### 코드
+## Takeaway
 
-```언어
-// 코드
+{Summarize the learning in one or two concise points.}
 ```
 
-### 결과 확인
+## Guidelines
 
-```bash
-# 실행 명령어
+- Focus on one primary learning.
+- Keep background information minimal.
+- Prefer a small concrete example.
+- Avoid turning the article into a complete tutorial.
+- Do not over-expand simple concepts.
+- Remove sections when the article is sufficiently clear without them.
+- Keep the conclusion short.
+
+---
+
+# 3. tutorial
+
+Use this category when the reader should be able to follow the article and reproduce a result.
+
+## Goal
+
+Guide the reader from an initial state to a clearly defined result.
+
+## Recommended Structure
+
+```text
+Title
+→ Goal
+→ Prerequisites
+→ Overview
+→ Step 1
+→ Step 2
+→ ...
+→ Result
+→ Common Issues
+→ Conclusion
 ```
 
+## Template
+
+````markdown
+# {Title}
+
+{Briefly describe what the reader will build, configure, or achieve.}
+
+## Goal
+
+By the end of this article, you will:
+
+- {Result 1}
+- {Result 2}
+
+## Prerequisites
+
+Before starting, make sure you have:
+
+- {Required environment}
+- {Required version}
+- {Required dependency}
+- {Required prerequisite knowledge}
+
+## Overview
+
+{Briefly explain the overall approach before beginning the steps.}
+
+## Step 1. {Step Name}
+
+{Explain what needs to be done and why.}
+
+```{language}
+{code}
+```
+````
+
+{Explain the important parts of the code or configuration.}
+
+## Step 2. {Step Name}
+
+{Continue with the next logical step.}
+
+## Step 3. {Step Name}
+
+{Continue as necessary.}
+
+## Result
+
+{Show or explain the expected final result.}
+
+## Common Issues
+
+### {Issue}
+
+**Cause**
+
+{Explain the likely cause.}
+
+**Solution**
+
+{Explain how to resolve it.}
+
+## Conclusion
+
+{Summarize what was implemented and the key concepts learned.}
+
+````
+
+## Guidelines
+
+- Optimize for reproducibility.
+- Clearly state environment and version requirements when relevant.
+- Present steps in execution order.
+- Do not skip essential setup.
+- Explain why each important step is necessary.
+- Show expected results after major milestones when useful.
+- Prefer minimal working examples.
+- Do not include unrelated theory unless it helps complete the tutorial.
+- Mention version-specific behavior when applicable.
+- Do not claim that code is runnable unless that can reasonably be verified.
+
 ---
 
-## 2단계: {단계 제목}
-(반복)
+# 4. trouble-shooting
 
----
+Use this category when documenting how a technical problem was investigated, diagnosed, and solved.
 
-## 마무리
-이 튜토리얼에서 배운 내용:
-1.
-2.
-3.
+## Goal
 
-## 다음 단계
-- {심화 주제 1}
-- {심화 주제 2}
+Help the reader understand both the solution and the reasoning process that led to it.
 
-## 질문이 있으시면
-댓글로 남겨주세요!
+## Recommended Structure
 
-## 참고 자료
-- [공식 문서](URL)
+```text
+Title
+→ Problem
+→ Environment
+→ Symptoms
+→ Investigation
+→ Failed Attempts
+→ Root Cause
+→ Solution
+→ Why It Worked
+→ Lessons Learned
+````
+
+## Template
+
+````markdown
+# {Title}
+
+{Briefly describe the problem and its final cause or solution without revealing unnecessary details.}
+
+## Problem
+
+{Describe what was expected and what actually happened.}
+
+### Expected
+
+{Expected behavior}
+
+### Actual
+
+{Observed behavior}
+
+## Environment
+
+- {Operating system}
+- {Framework / Engine}
+- {Version}
+- {Relevant hardware}
+- {Relevant configuration}
+
+Include only environment details that may affect the problem.
+
+## Symptoms
+
+{Describe observable symptoms, errors, logs, visual artifacts, crashes, or unexpected behavior.}
+
+## Investigation
+
+### Hypothesis 1: {Hypothesis}
+
+{Explain why this was suspected.}
+
+{Describe how it was tested.}
+
+**Result:** {Confirmed / Rejected / Inconclusive}
+
+### Hypothesis 2: {Hypothesis}
+
+{Continue as necessary.}
+
+## Failed Attempts
+
+{Describe failed attempts only when they contributed useful information to the investigation.}
+
+### {Attempt}
+
+{What was tried}
+
+**Result:** {What happened}
+
+**What this revealed:** {What was learned}
+
+## Root Cause
+
+{Clearly explain the confirmed root cause.}
+
+Explain the relationship between:
+
+```text
+Cause
+→ Internal behavior
+→ Observed symptom
+```
+````
+
+Do not present an assumption as the root cause.
+
+## Solution
+
+{Explain the final fix.}
+
+```{language}
+{code}
 ```
 
+{Explain the important changes.}
+
+## Why It Worked
+
+{Explain technically why the change resolves the root cause.}
+
+## Lessons Learned
+
+- {Lesson}
+- {Debugging insight}
+- {Preventive measure}
+
+## Conclusion
+
+{Briefly summarize the problem, root cause, and solution.}
+
+````
+
+## Guidelines
+
+- Start with observable facts.
+- Clearly separate symptoms, hypotheses, and confirmed causes.
+- Preserve failed attempts when they contributed to diagnosis.
+- Remove failed attempts that add no useful information.
+- Prefer evidence over speculation.
+- Include logs, errors, screenshots, or code only when they help explain the diagnosis.
+- Explain why the final solution works.
+- Do not confuse correlation with causation.
+- Mention if the root cause remains uncertain.
+
 ---
 
-## 3. 트러블슈팅 템플릿
+# 5. deep-dive
 
-문제 해결 기록용
+Use this category when explaining how a technology, system, algorithm, engine feature, or architecture works internally.
+
+## Goal
+
+Help the reader understand the mechanism behind a technical system rather than simply how to use it.
+
+## Recommended Structure
+
+```text
+Title
+→ Overview
+→ Motivation
+→ Prerequisites
+→ Architecture
+→ Core Mechanism
+→ Data Flow
+→ Implementation Details
+→ Trade-offs
+→ Performance
+→ Edge Cases
+→ Takeaway
+````
+
+## Template
+
+````markdown
+# {Title}
+
+{Introduce the technical subject and the main question the article will answer.}
+
+## Overview
+
+{Give the reader a high-level mental model of the system.}
+
+## Why This Exists
+
+{Explain the problem or design requirement that motivated the system.}
+
+## Prerequisites
+
+{Introduce only the concepts required to understand the rest of the article.}
+
+## Architecture
+
+{Describe the major components and their responsibilities.}
+
+```text
+{Component A}
+    ↓
+{Component B}
+    ↓
+{Component C}
+```
+````
+
+{Explain the relationship between the components.}
+
+## Core Mechanism
+
+{Explain the central technical mechanism in detail.}
+
+Focus on:
+
+- state changes
+- data transformations
+- ownership
+- execution order
+- synchronization
+- memory behavior
+- CPU / GPU boundaries
+- system responsibilities
+
+Include only those that are relevant.
+
+## Data Flow
+
+{Explain how data moves through the system.}
+
+```text
+Input
+→ Processing
+→ Intermediate State
+→ Output
+```
+
+## Implementation Details
+
+{Explain important implementation details.}
+
+```{language}
+{code}
+```
+
+{Explain runtime behavior and important design decisions.}
+
+## Trade-offs
+
+### Advantages
+
+- {Advantage}
+
+### Limitations
+
+- {Limitation}
+
+### Alternatives
+
+{Explain relevant alternatives and why a different design may be preferable in some situations.}
+
+## Performance Considerations
+
+{Discuss performance only when relevant and supported.}
+
+Potential topics:
+
+- time complexity
+- memory usage
+- allocations
+- cache behavior
+- synchronization
+- CPU cost
+- GPU cost
+- bandwidth
+- scalability
+
+Do not invent performance numbers.
+
+## Edge Cases
+
+{Explain special conditions, limitations, or failure cases that are useful to understand.}
+
+## Takeaway
+
+{Summarize the system's most important mechanism and trade-off.}
+
+````
+
+## Guidelines
+
+- Prioritize internal mechanisms over usage instructions.
+- Explain why the system is designed this way.
+- Build from a high-level mental model toward implementation details.
+- Clearly distinguish conceptual behavior from implementation-specific behavior.
+- Explain execution order when it matters.
+- Use diagrams when relationships are difficult to describe with prose.
+- Discuss alternatives and trade-offs.
+- Avoid turning every deep-dive into a complete source-code walkthrough.
+- Do not add theoretical background that does not help explain the mechanism.
+- Do not invent undocumented internals.
+
+---
+
+# 6. review
+
+Use this category when evaluating a technology, framework, library, tool, API, service, or development workflow based on actual usage or investigation.
+
+## Goal
+
+Help the reader decide whether the technology is appropriate for their situation.
+
+## Recommended Structure
+
+```text
+Title
+→ What It Is
+→ Why I Used It
+→ Evaluation Context
+→ Experience
+→ Strengths
+→ Weaknesses
+→ Comparison
+→ Who It Is For
+→ Verdict
+````
+
+## Template
 
 ```markdown
-# [해결] {에러메시지 또는 문제 상황}
+# {Title}
 
-## 문제 상황
+{Briefly introduce the technology and the overall context of the review.}
 
-### 환경
-- OS:
-- Node.js:
-- (관련 패키지 버전)
+## What Is {Technology}?
 
-### 증상
-(어떤 상황에서 어떤 에러/문제가 발생했는지)
+{Explain what the technology is and what problem it is designed to solve.}
 
-### 에러 메시지
+Keep this section factual.
 
-```
-에러 메시지 전문
-```
+## Why I Tried It
 
----
+{Explain the author's reason for using or evaluating it.}
 
-## 원인 분석
+## Evaluation Context
 
-### 시도한 방법들
-1. **{시도 1}**: 결과 - 실패 이유
-2. **{시도 2}**: 결과 - 실패 이유
+Describe the conditions under which the technology was evaluated.
 
-### 근본 원인
-(왜 이 문제가 발생했는지)
+- Project type: {project}
+- Environment: {environment}
+- Version: {version}
+- Usage period: {period if relevant}
+- Primary use case: {use case}
 
----
+Include only relevant information.
 
-## 해결 방법
+## Experience
 
-### 방법 1: {해결책 제목}
+{Describe how the technology was actually used.}
 
-```언어
-// 해결 코드
-```
+Focus on concrete observations rather than marketing claims.
 
-### 설명
-(왜 이 방법이 효과가 있는지)
+## What Worked Well
 
----
+### {Strength}
 
-## 배운 점
--
--
+{Explain the benefit and the situation in which it was useful.}
 
-## 키워드
-#{에러키워드} #{기술스택} #트러블슈팅
-```
+## What Did Not Work Well
 
----
+### {Weakness}
 
-## 4. 딥다이브 (심층 분석) 템플릿
+{Explain the limitation and its impact.}
 
-기술 내부 동작 원리 분석용
+## Comparison
 
-```markdown
-# {기술/개념} 딥다이브: {부제}
+|             | {Technology} | {Alternative} |
+| ----------- | ------------ | ------------- |
+| {Criterion} | {Evaluation} | {Evaluation}  |
+| {Criterion} | {Evaluation} | {Evaluation}  |
 
-## 들어가며
-(왜 이 주제를 깊이 파헤쳐야 하는지)
+Use comparisons only when they are meaningful and sufficiently supported.
 
-## 이 글의 대상
-- {대상 1}
-- {대상 2}
+## Who Is It For?
 
----
+This technology may be appropriate when:
 
-## 1. 배경 지식
-(이해에 필요한 선행 개념 설명)
+- {Situation}
 
-### 1.1 {개념 1}
-### 1.2 {개념 2}
+It may not be appropriate when:
 
----
+- {Situation}
 
-## 2. 핵심 개념
+## Verdict
 
-### 2.1 {핵심 개념 제목}
-(상세 설명)
+{Give a balanced conclusion based on the evaluation context.}
 
-#### 동작 원리
-(내부적으로 어떻게 동작하는지)
-
-```언어
-// 내부 구현 또는 의사 코드
+Clearly distinguish personal judgment from factual claims.
 ```
 
-### 2.2 {핵심 개념 제목}
-(반복)
+## Guidelines
+
+- Separate facts from personal evaluation.
+- State the evaluation context.
+- Explain strengths and weaknesses.
+- Avoid universal conclusions from limited experience.
+- Avoid repeating product marketing language.
+- Support important judgments with concrete examples.
+- Compare alternatives only when the comparison is fair.
+- Explain who would and would not benefit from the technology.
+- Mention relevant version information.
+- Avoid arbitrary numeric scores unless the user requests them.
 
 ---
 
-## 3. 실제 적용
+# Template Selection Rules
 
-### 예제 1: {예제 제목}
+Use the category explicitly selected by the user.
 
-```언어
-// 실제 사용 예제
+If no category is specified:
+
+```text
+category = default
 ```
 
-### 예제 2: {예제 제목}
+Do not automatically change `default` to another category unless the user asks the skill to recommend or classify the article type.
 
----
+When the selected category conflicts with the source material, preserve the user's selected category and adapt the structure rather than silently changing it.
 
-## 4. 성능 고려사항
-- {고려사항 1}
-- {고려사항 2}
+For example:
 
-## 5. 흔한 실수와 주의점
-| 실수 | 이유 | 올바른 방법 |
-|------|------|------------|
-| | | |
-
----
-
-## 정리
-
-### 핵심 포인트
-1.
-2.
-3.
-
-### 더 알아보기
-- [관련 글 1](URL)
-- [관련 글 2](URL)
-
-## 참고 자료
-- [공식 문서](URL)
-- [관련 논문/아티클](URL)
+```text
+Selected: tutorial
+Source material: includes debugging history
 ```
 
----
-
-## 5. 프로젝트 회고 템플릿
-
-프로젝트/학습 회고용
-
-```markdown
-# {프로젝트명} 회고: {부제}
-
-## 프로젝트 개요
-
-| 항목 | 내용 |
-|------|------|
-| 기간 | YYYY-MM-DD ~ YYYY-MM-DD |
-| 역할 | |
-| 기술 스택 | |
-| GitHub | [링크](URL) |
-| 배포 URL | [링크](URL) |
+The article may include a short troubleshooting section, but it should remain primarily a tutorial.
 
 ---
 
-## 목표
-이 프로젝트에서 달성하고자 했던 것:
-1.
-2.
+# Structure Adaptation
+
+The templates above define recommended structures.
+
+Do not blindly include every heading.
+
+Remove a section when:
+
+- there is no meaningful content for it
+- it repeats another section
+- it interrupts the article's natural flow
+
+Add a section when:
+
+- the topic requires additional prerequisite knowledge
+- an important limitation needs explanation
+- architecture or data flow needs separate treatment
+- the user's source material contains important information that does not fit an existing section
+
+The final structure should serve the article, not the template.
 
 ---
 
-## 주요 기능/작업
-### 1. {기능 1}
-(설명 및 스크린샷)
+# Introduction Rules
 
-### 2. {기능 2}
-(반복)
+The introduction should quickly answer:
 
----
+1. What is this article about?
+2. Why does it matter?
+3. What will the reader learn?
 
-## 잘한 점 (Keep)
--
--
+Avoid generic introductions such as:
 
-## 개선할 점 (Problem)
--
--
+> Technology is developing rapidly these days.
 
-## 다음에 시도할 것 (Try)
--
--
+> There are many ways to solve this problem.
 
----
+> Developers often face many challenges.
 
-## 배운 점
-### 기술적으로
--
+Prefer concrete context.
 
-### 협업/프로세스
--
+Example:
+
+> While implementing spot-light shadows, I initially reused the directional-light shadow pipeline. The shadow map itself was generated correctly, but the projected shadow became distorted as the light cone widened. The cause was the projection model: unlike a directional light, a spot light requires perspective projection.
 
 ---
 
-## 마무리
-(전체적인 소감)
+# Heading Rules
+
+Headings should describe the actual content of the section.
+
+Prefer:
+
+```text
+Why Spot Lights Need Perspective Projection
 ```
 
----
+over:
 
-## 6. 비교 분석 템플릿
-
-기술/도구 비교용
-
-```markdown
-# {기술A} vs {기술B}: {관점}에서 비교
-
-## 개요
-(왜 이 비교가 필요한지, 어떤 기준으로 비교하는지)
-
-## 한눈에 비교
-
-| 기준 | {기술A} | {기술B} |
-|------|---------|---------|
-| 학습 곡선 | | |
-| 성능 | | |
-| 생태계 | | |
-| 커뮤니티 | | |
-
----
-
-## 1. {기술A}
-
-### 장점
--
--
-
-### 단점
--
--
-
-### 적합한 경우
--
-
-### 코드 예제
-
-```언어
-// 예제
+```text
+Background
 ```
 
----
+Prefer:
 
-## 2. {기술B}
-
-(동일 구조)
-
----
-
-## 결론
-
-### 이럴 때는 {기술A}
--
-
-### 이럴 때는 {기술B}
--
-
-## 개인적인 선택
-(본인의 의견과 이유)
+```text
+The Root Cause Was an Incorrect FOV
 ```
 
----
+over:
 
-## 7. 시리즈 글 템플릿
-
-연재물 작성용
-
-```markdown
-# [{시리즈명}] {회차}. {제목}
-
-## 시리즈 소개
-> 이 글은 "{시리즈명}" 시리즈의 {N}번째 글입니다.
-
-### 시리즈 목차
-1. [제목](URL) - 완료
-2. [제목](URL) - 완료
-3. **{현재 글 제목}** - 현재 글
-4. {예정된 주제} - 예정
-
----
-
-## 지난 글 요약
-(이전 글에서 다룬 내용 간단 정리)
-
----
-
-## 이번 글에서 다룰 내용
--
--
-
----
-
-## 본문
-
-### 1. {소제목}
-
-### 2. {소제목}
-
----
-
-## 정리
-이번 글에서 배운 내용:
--
--
-
-## 다음 글 예고
-다음 글에서는 {주제}를 다룹니다.
-
-## 질문 & 피드백
-시리즈에 대한 의견이나 다뤄줬으면 하는 주제가 있다면 댓글로 남겨주세요!
+```text
+Problem Analysis
 ```
 
+Generic headings may be used when they improve consistency, but descriptive headings are preferred when possible.
+
 ---
 
-## 템플릿 선택 가이드
+# Conclusion Rules
 
-| 상황 | 권장 템플릿 |
-|------|------------|
-| 오늘 새로 알게 된 개념을 기록하고 싶다 | TIL |
-| 특정 기능 구현 방법을 설명하고 싶다 | 튜토리얼 |
-| 에러를 해결한 과정을 공유하고 싶다 | 트러블슈팅 |
-| 기술의 내부 동작을 깊이 분석하고 싶다 | 딥다이브 |
-| 프로젝트를 마무리하고 돌아보고 싶다 | 회고 |
-| 두 기술 중 하나를 선택해야 할 때 | 비교 분석 |
-| 여러 글로 나눠서 깊이 있게 다루고 싶다 | 시리즈 |
+Do not simply repeat the introduction.
+
+A conclusion should provide one or more of the following:
+
+- the main technical insight
+- the final design decision
+- the confirmed root cause
+- an important trade-off
+- a lesson that can be applied elsewhere
+
+Keep conclusions concise.
+
+---
+
+# Code Placement
+
+When code is necessary:
+
+```text
+Context
+→ Code
+→ Explanation
+```
+
+Explain:
+
+- why the code exists
+- what the important parts do
+- how it behaves at runtime
+- relevant assumptions or limitations
+
+Do not explain every line when the behavior is already obvious.
+
+Follow `references/code-blocks.md` for detailed code formatting rules.
+
+---
+
+# Final Rule
+
+The article should never feel like text generated by filling empty sections in a template.
+
+Use the template to create structure, then adapt that structure to the technical story being told.

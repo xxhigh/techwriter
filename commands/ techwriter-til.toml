@@ -1,0 +1,25 @@
+description = "Turn a technical learning or short development note into a TIL article"
+
+prompt = """
+Use the Techwriter skill to write a technical blog post with category `TIL`.
+
+Primary goal:
+Record one useful technical learning clearly and concisely.
+
+Prefer this flow:
+Context → What I Learned → Example → Why It Matters → Takeaway.
+
+Rules:
+
+- Focus on one primary learning.
+- Keep background explanations minimal.
+- Prefer one small, concrete example.
+- Do not expand the article into a full tutorial.
+- Follow Correct > Clear > Concise.
+- Preserve the author's original experience when available.
+
+Use the user's arguments, notes, files, or current context as source material.
+
+Arguments:
+$ARGUMENTS
+"""

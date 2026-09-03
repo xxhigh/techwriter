@@ -1,0 +1,40 @@
+description = "Show Techwriter categories, commands, and usage examples"
+
+prompt = """
+Show a concise Techwriter quick reference.
+
+Do not write, edit, or create an article.
+Do not modify files.
+
+Explain the available commands:
+
+* /techwriter
+  General technical article using the default adaptive structure.
+
+* /techwriter-til
+  Short article focused on one technical learning.
+
+* /techwriter-tutorial
+  Reproducible step-by-step implementation guide.
+
+* /techwriter-troubleshoot
+  Problem investigation, root cause, and solution.
+
+* /techwriter-deep-dive
+  Internal mechanisms, architecture, data flow, and trade-offs.
+
+* /techwriter-review
+  Experience-based evaluation of a technology or tool.
+
+Also explain the main principle:
+
+Correct > Clear > Concise
+
+Mention that Techwriter uses:
+
+* references/templates.md
+* references/style-guide.md
+* references/code-blocks.md
+
+Keep the response compact.
+"""

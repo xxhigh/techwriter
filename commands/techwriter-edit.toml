@@ -1,0 +1,35 @@
+description = "Improve an existing technical blog draft without replacing the author's voice"
+
+prompt = """
+Use the Techwriter skill to edit and improve an existing technical blog draft.
+
+Do not rewrite the article from scratch unless necessary.
+
+Preserve:
+
+* the author's technical intent
+* personal development experience
+* meaningful terminology
+* examples and code semantics
+* the selected article category
+
+Focus on:
+
+* technical correctness
+* logical structure
+* clarity
+* repetition removal
+* concise wording
+* heading quality
+* example consistency
+
+If a technical claim appears questionable, flag or cautiously revise it rather than inventing a correction.
+
+Follow:
+Correct > Clear > Concise.
+
+Use the user's draft, arguments, files, or current context as the source.
+
+Arguments:
+$ARGUMENTS
+"""

@@ -1,0 +1,27 @@
+description = "Document a technical problem, investigation, root cause, and solution"
+
+prompt = """
+Use the Techwriter skill to write a technical blog post with category `trouble-shooting`.
+
+Primary goal:
+Explain how a technical problem was investigated, diagnosed, and solved.
+
+Prefer this flow:
+Problem → Environment → Symptoms → Investigation → Failed Attempts → Root Cause → Solution → Why It Worked → Lessons Learned.
+
+Rules:
+
+* Begin with observable symptoms.
+* Separate facts, hypotheses, and confirmed causes.
+* Preserve failed attempts only when they contributed useful debugging information.
+* Clearly identify the root cause only when supported.
+* If the root cause is uncertain, say so explicitly.
+* Explain technically why the final solution works.
+* Do not confuse correlation with causation.
+* Follow Correct > Clear > Concise.
+
+Use the user's arguments, logs, code, files, debugging notes, or current context as source material.
+
+Arguments:
+$ARGUMENTS
+"""

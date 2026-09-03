@@ -1,369 +1,357 @@
-# 티스토리 코드 블록 작성 가이드
-
-티스토리에서 코드를 효과적으로 표시하기 위한 가이드입니다.
+---
+name: Code Block Style Guide
+description: >
+Code block formatting and explanation guidelines for Techwriter.
+---
 
 ---
 
-## 티스토리 에디터 유형
+# Code Block Style Guide
 
-### 1. 새 에디터 (권장)
-- 마크다운 공식 지원
-- 코드 블록 기능 내장
-- ``` 문법 사용 가능
+Use code blocks only when they improve technical understanding.
 
-### 2. 기본 에디터
-- HTML 모드로 작성 필요
-- `<pre><code>` 태그 사용
-- Syntax Highlight 플러그인 필요
+The goal is to make code examples:
 
----
+- easy to read
+- technically correct
+- focused on the relevant logic
+- consistent throughout the article
 
-## 마크다운 코드 블록 (새 에디터)
+## Core Rules
 
-### 기본 문법
+1. Always specify the language identifier when known.
+2. Keep examples focused on the code relevant to the explanation.
+3. Add comments only where they clarify important behavior.
+4. Show execution results separately from source code.
+5. For long code, include only the relevant sections.
+6. Preserve the semantics of user-provided code.
+7. Do not claim code is runnable unless it can reasonably be verified.
 
-````markdown
-```언어명
-코드 내용
+## Default Style
+
+Use fenced code blocks with a language identifier.
+
+```<language>
+<code>
 ```
-````
 
-### 지원 언어 목록
+Example:
 
-| 언어 | 식별자 | 예시 |
-|------|--------|------|
-| JavaScript | `javascript` 또는 `js` | ```javascript |
-| TypeScript | `typescript` 또는 `ts` | ```typescript |
-| Python | `python` 또는 `py` | ```python |
-| HTML | `html` | ```html |
-| CSS | `css` | ```css |
-| SCSS/SASS | `scss` | ```scss |
-| JSON | `json` | ```json |
-| YAML | `yaml` 또는 `yml` | ```yaml |
-| Bash/Shell | `bash` 또는 `shell` | ```bash |
-| SQL | `sql` | ```sql |
-| Go | `go` | ```go |
-| Rust | `rust` | ```rust |
-| Java | `java` | ```java |
-| Kotlin | `kotlin` | ```kotlin |
-| Swift | `swift` | ```swift |
-| C | `c` | ```c |
-| C++ | `cpp` 또는 `c++` | ```cpp |
-| C# | `csharp` 또는 `cs` | ```csharp |
-| PHP | `php` | ```php |
-| Ruby | `ruby` | ```ruby |
-| Dockerfile | `dockerfile` | ```dockerfile |
-| Markdown | `markdown` 또는 `md` | ```markdown |
-| Plain text | `text` 또는 `plaintext` | ```text |
+```cpp
+int Add(int a, int b)
+{
+    return a + b;
+}
+```
 
----
+## Language Identifiers
 
-## 인라인 코드
+Use commonly supported Markdown language identifiers.
 
-변수명, 함수명, 짧은 코드는 인라인으로:
+| Language     | Preferred Identifier |
+| ------------ | -------------------- |
+| JavaScript   | `javascript`         |
+| TypeScript   | `typescript`         |
+| Python       | `python`             |
+| HTML         | `html`               |
+| CSS          | `css`                |
+| SCSS         | `scss`               |
+| JSON         | `json`               |
+| YAML         | `yaml`               |
+| Bash / Shell | `bash`               |
+| SQL          | `sql`                |
+| Go           | `go`                 |
+| Rust         | `rust`               |
+| Java         | `java`               |
+| Kotlin       | `kotlin`             |
+| Swift        | `swift`              |
+| C            | `c`                  |
+| C++          | `cpp`                |
+| C#           | `csharp`             |
+| PHP          | `php`                |
+| Ruby         | `ruby`               |
+| Dockerfile   | `dockerfile`         |
+| Markdown     | `markdown`           |
+| Plain text   | `text`               |
+
+Use another valid identifier when the language is not listed.
+
+Do not use an incorrect identifier only because it appears in this table.
+
+## Inline Code
+
+Use inline code for:
+
+- variable names
+- function names
+- class names
+- API names
+- commands
+- file paths
+- short expressions
+
+Example:
+
+Use `console.log()` to print a value.
+
+Prefer:
 
 ```markdown
-`useState` 훅을 사용하여 상태를 관리합니다.
+Call `GetWorld()` before accessing the current world.
 ```
 
-결과: `useState` 훅을 사용하여 상태를 관리합니다.
+Avoid using a fenced code block for a single identifier or short expression.
 
----
+## Code Explanation
 
-## HTML 모드 코드 블록 (기본 에디터)
+Use the following order when presenting important code:
 
-마크다운이 지원되지 않는 경우:
-
-```html
-<pre><code class="language-javascript">
-function hello() {
-  console.log('Hello, World!');
-}
-</code></pre>
+```text
+Context
+→ Code
+→ Explanation
 ```
 
-### Syntax Highlighting 설정
+Explain:
 
-#### 방법 1: 티스토리 플러그인
-1. 티스토리 관리자 > 플러그인
-2. "Syntax Highlight" 검색
-3. 활성화
+- why the code is needed
+- what the important parts do
+- how the code behaves at runtime
+- relevant assumptions or limitations
 
-#### 방법 2: highlight.js 직접 적용
-HTML 편집에서 `</head>` 위에 추가:
+Do not explain every line when the behavior is already obvious.
 
-```html
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
+## Comments
+
+Use comments to clarify non-obvious logic.
+
+Example:
+
+```cpp
+// Convert the light's outer cone angle to a full perspective FOV.
+const float Fov = OuterConeAngle * 2.0f;
 ```
 
-### 인기 테마 목록
-| 테마명 | 스타일 |
-|--------|--------|
-| github | 밝은 테마, GitHub 스타일 |
-| github-dark | 어두운 테마, GitHub 스타일 |
-| monokai | 어두운 테마, 인기 에디터 스타일 |
-| atom-one-dark | 어두운 테마, Atom 스타일 |
-| vs2015 | 어두운 테마, Visual Studio 스타일 |
-| androidstudio | 어두운 테마, Android Studio 스타일 |
+Avoid comments that simply repeat the code.
 
----
+Avoid:
 
-## 코드 블록 작성 팁
+```cpp
+// Add one to count.
+Count += 1;
+```
 
-### 1. 실행 결과 표시
+Comments should explain **why**, not merely restate **what**.
 
-````markdown
+## Execution Output
+
+Keep program output separate from the source code.
+
+Example:
+
 ```javascript
-console.log('Hello, World!');
+console.log("Hello, World!");
 ```
 
-**실행 결과:**
-```
+Output:
+
+```text
 Hello, World!
 ```
-````
 
-### 2. 코드 변경 강조 (diff)
+Do not mix source code and execution output inside the same code block unless the format naturally requires it, such as an interactive shell session.
 
-````markdown
-```diff
-- const oldValue = 'old';
-+ const newValue = 'new';
-```
-````
+## Terminal Commands
 
-### 3. 파일명 표시
+Use `bash` for terminal commands when appropriate.
 
-````markdown
-`src/components/Button.tsx`
-```typescript
-export const Button = () => {
-  return <button>Click me</button>;
-};
-```
-````
-
-### 4. 터미널 명령어
-
-````markdown
 ```bash
-# 패키지 설치
 npm install axios
-
-# 개발 서버 실행
 npm run dev
 ```
-````
 
-### 5. 긴 코드 처리
+When a command is platform-specific, state the expected environment when relevant.
 
-긴 코드는 핵심 부분만 표시하고 전체 코드 링크 제공:
+Example:
 
-````markdown
+```bash
+# macOS / Linux
+rm -rf node_modules
+```
+
+Avoid excessive comments for obvious commands.
+
+## File Names
+
+When the file location matters, show the file path immediately before the code block.
+
+Example:
+
+`src/components/Button.tsx`
+
+```typescript
+export const Button = () => {
+    return <button>Click me</button>;
+};
+```
+
+Keep file paths in inline code.
+
+Do not place the file name after the code block unless the surrounding explanation makes that clearer.
+
+## Code Differences
+
+When showing changes between two versions, prefer a `diff` block.
+
+```diff
+- const oldValue = "old";
++ const newValue = "new";
+```
+
+For larger changes, include enough surrounding context to make the modification understandable.
+
+Do not manually add `+` and `-` markers to a normal language block such as `javascript` or `cpp`.
+
+## Long Code
+
+Avoid large code dumps.
+
+Show only the sections necessary to explain the topic.
+
+Example:
+
 ```javascript
-// ... 생략 ...
+// ...
 
-// 핵심 로직
 function processData(data) {
-  return data.map(item => item.value * 2);
+    return data.map((item) => item.value * 2);
 }
 
-// ... 생략 ...
+// ...
 ```
 
-> **팁**: 전체 코드는 [GitHub](링크)에서 확인할 수 있습니다.
-````
+Use comments such as `// ...` only when they clearly indicate omitted code.
 
----
+Do not omit code required to understand the behavior being discussed.
 
-## 코드 설명 패턴
+If the user provides a valid link to the complete source, it may be referenced after the example.
 
-### 패턴 1: 코드 후 설명
+Example:
 
-````markdown
-```javascript
-const [count, setCount] = useState(0);
+```markdown
+Full implementation: [GitHub](...)
 ```
 
-- `count`: 현재 상태 값
-- `setCount`: 상태를 업데이트하는 함수
-- `0`: 초기값
-````
+Never invent a repository or source-code URL.
 
-### 패턴 2: 주석으로 설명
+## Multiple Code Blocks
 
-````markdown
-```javascript
-// 1. 상태 선언
-const [count, setCount] = useState(0);
+Split code into multiple blocks when they represent:
 
-// 2. 이벤트 핸들러
-const handleClick = () => {
-  setCount(prev => prev + 1); // 이전 값 기반으로 업데이트
-};
+- different files
+- different execution stages
+- before / after states
+- client / server code
+- CPU / GPU code
+- configuration / implementation
 
-// 3. UI 렌더링
-return <button onClick={handleClick}>{count}</button>;
-```
-````
+Do not split code merely to make the article appear shorter.
 
-### 패턴 3: 단계별 설명
+Each code block should have a clear purpose.
 
-````markdown
-### 1단계: 상태 선언
+## Before and After
 
-```javascript
-const [count, setCount] = useState(0);
+For substantial changes, clearly label the original and modified versions.
+
+### Before
+
+```cpp
+RawPointer = Object;
 ```
 
-`useState`는 React의 상태 관리 훅입니다. 배열 구조 분해를 통해 상태 값과 setter 함수를 받습니다.
+### After
 
-### 2단계: 이벤트 핸들러 작성
-
-```javascript
-const handleClick = () => {
-  setCount(prev => prev + 1);
-};
+```cpp
+ObjectPointer = Object;
 ```
 
-콜백 형태로 이전 상태(`prev`)를 받아 새 값을 계산합니다.
-````
+Then explain the behavioral difference.
 
----
+For small line-level modifications, prefer a `diff` block instead.
 
-## 프레임워크별 코드 블록 예시
+## Pseudocode
 
-### React (JSX/TSX)
+Use `text` or a clearly identified pseudocode block when actual source code would introduce unnecessary implementation detail.
 
-````markdown
-```tsx
-import { useState } from 'react';
-
-interface Props {
-  initialCount: number;
-}
-
-export const Counter = ({ initialCount }: Props) => {
-  const [count, setCount] = useState(initialCount);
-
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(c => c + 1)}>
-        Increment
-      </button>
-    </div>
-  );
-};
+```text
+Input
+→ Validate
+→ Process
+→ Store Result
 ```
-````
 
-### Vue
+Do not present pseudocode as executable code.
 
-````markdown
-```vue
-<template>
-  <div>
-    <p>Count: {{ count }}</p>
-    <button @click="increment">Increment</button>
-  </div>
-</template>
+## Error Messages and Logs
 
-<script setup lang="ts">
-import { ref } from 'vue';
+Use `text` for errors, logs, and console output unless another identifier is more appropriate.
 
-const count = ref(0);
-const increment = () => count.value++;
-</script>
+```text
+ModuleNotFoundError: No module named 'tensorflow'
 ```
-````
 
-### Docker
+Preserve important error text exactly when analyzing a specific failure.
 
-````markdown
-```dockerfile
-# Node.js 베이스 이미지
-FROM node:18-alpine
+Remove irrelevant log noise when it does not contribute to the explanation.
 
-# 작업 디렉토리 설정
-WORKDIR /app
+## Code Correctness
 
-# 의존성 파일 복사 및 설치
-COPY package*.json ./
-RUN npm ci --only=production
+Before presenting code:
 
-# 소스 코드 복사
-COPY . .
+- check syntax when possible
+- preserve the correct API names
+- preserve ownership and lifetime semantics
+- preserve execution order
+- preserve thread assumptions
+- preserve language and framework conventions
 
-# 앱 실행
-CMD ["node", "server.js"]
+If code is conceptual or incomplete, state that clearly.
+
+Example:
+
+> The following code is simplified to illustrate the ownership model.
+
+Do not disguise pseudocode or incomplete snippets as production-ready code.
+
+## Highlighting Important Code
+
+Prefer reducing the example to the important lines rather than using artificial emphasis inside code.
+
+Do not use Markdown bold or italic syntax inside source code to highlight lines.
+
+Prefer:
+
+```cpp
+const float Fov = OuterConeAngle * 2.0f;
 ```
-````
 
-### Kubernetes YAML
+with an explanation immediately afterward.
 
-````markdown
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-app
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: my-app
-  template:
-    metadata:
-      labels:
-        app: my-app
-    spec:
-      containers:
-        - name: my-app
-          image: my-app:latest
-          ports:
-            - containerPort: 3000
-```
-````
+For changes, use `diff`.
 
-### GitHub Actions
+## Checklist
 
-````markdown
-```yaml
-name: CI/CD Pipeline
+Before finalizing an article containing code, verify:
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-```
-````
-
----
-
-## 체크리스트
-
-코드 블록 작성 시 확인사항:
-
-- [ ] 언어 식별자가 올바른가?
-- [ ] 코드가 문법적으로 올바른가?
-- [ ] 불필요한 코드는 제거했는가?
-- [ ] 핵심 부분에 주석이 있는가?
-- [ ] 실행 결과가 필요한 경우 포함했는가?
-- [ ] 들여쓰기가 일관적인가?
+- [ ] Correct language identifiers are used.
+- [ ] Code syntax is valid when possible.
+- [ ] Important API and function names are correct.
+- [ ] Unnecessary code has been removed.
+- [ ] Essential context has not been removed.
+- [ ] Comments explain non-obvious behavior.
+- [ ] Execution output is separated from source code.
+- [ ] File paths are shown when relevant.
+- [ ] Indentation and formatting are consistent.
+- [ ] User-provided code semantics have not been silently changed.
+- [ ] Conceptual or incomplete code is labeled appropriately.
+- [ ] No source-code links have been invented.

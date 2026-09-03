@@ -1,199 +1,760 @@
-# 한국어 기술 문서 스타일 가이드
-
-티스토리 기술 블로그 작성을 위한 한국어 스타일 가이드입니다.
+---
+name: Techwriter Style Guide
+description: >
+Writing style, tone, readability, and structure guidelines for Techwriter.
+---
 
 ---
 
-## 기본 원칙
+# Techwriter Style Guide
 
-### 1. 독자 중심
-- 독자가 **문제를 해결**하고 **목표를 달성**하도록 돕는 것이 목적
-- "내가 무엇을 알았는가"보다 "독자가 무엇을 얻을 수 있는가"에 집중
+This document defines the default writing style for Techwriter.
 
-### 2. 쉬운 글 > 멋진 글
-- 전문 용어는 꼭 필요할 때만 사용
-- 전문 용어 사용 시 첫 등장에서 설명 추가
-- 예: "클로저(closure, 함수와 그 함수가 선언된 환경의 조합)는..."
+The goal is to produce technical writing that is:
 
-### 3. 코드 먼저, 설명은 나중
-- 기술 문서는 예제 코드를 먼저 제시
-- 코드를 보고 이해할 수 있게 하고, 설명은 보충 역할
+**Correct, Clear, and Concise.**
+
+When these principles conflict, use the following priority:
+
+**Correct > Clear > Concise**
 
 ---
 
-## 문체 규칙
+# 1. Default Tone
 
-### 종결어미
-| 상황 | 권장 | 예시 |
-|------|------|------|
-| 일반 설명 | ~합니다 | "이 함수는 배열을 반환합니다" |
-| 지시/가이드 | ~하세요 | "다음 명령어를 실행하세요" |
-| 주의사항 | ~해야 합니다 | "반드시 백업을 해야 합니다" |
+Write like an experienced developer explaining a technical topic to another developer.
 
-### 피해야 할 표현
-| 피하기 | 대신 사용 |
-|--------|----------|
-| ~되어지다 (이중 피동) | ~되다 |
-| ~해주다 | ~하다 |
-| ~인 것 같습니다 | ~입니다 |
-| ~라는 것을 알 수 있다 | (직접 서술) |
-| 저는/제가 | 생략 (주어 필요시 '필자') |
+The tone should be:
 
-### 좋은 예 vs 나쁜 예
+- technical
+- practical
+- neutral
+- confident when facts are verified
+- cautious when information is uncertain
+- easy to read
 
-**나쁜 예:**
-> "저는 이 방법이 좋은 것 같다고 생각이 되어집니다."
+Avoid sounding like:
 
-**좋은 예:**
-> "이 방법이 효과적입니다."
+- marketing copy
+- academic papers unless requested
+- product documentation
+- motivational writing
+- generic AI-generated prose
+
+Do not exaggerate the importance, difficulty, or effectiveness of a technology.
 
 ---
 
-## 용어 표기 규칙
+# 2. Reader First
 
-### 영문 기술 용어
-1. **처음 등장**: 한글(영문) 형식
-   - 예: "컴포넌트(Component)를 생성합니다"
-2. **이후**: 일관되게 한글 또는 영문 중 하나 선택
+Write for the intended reader, not for the author.
 
-### 자주 쓰는 용어 권장 표기
+Before writing, identify:
 
-| 영문 | 권장 표기 | 비권장 |
-|------|----------|--------|
-| Component | 컴포넌트 | 컴퍼넌트 |
-| Function | 함수 | 펑션 |
-| Variable | 변수 | 베리어블 |
-| Array | 배열 | 어레이 |
-| Object | 객체 | 오브젝트 |
-| String | 문자열 | 스트링 |
-| Parameter | 매개변수 / 파라미터 | 패러미터 |
-| Argument | 인자 / 인수 | 아규먼트 |
-| Callback | 콜백 | 콜백 함수 |
-| Promise | 프로미스 / Promise | 프라미스 |
-| async/await | async/await (그대로) | 어싱크/어웨이트 |
-| API | API (그대로) | 에이피아이 |
-| DOM | DOM (그대로) | 돔 |
-| CSS | CSS (그대로) | 씨에스에스 |
-| Hook | 훅 | 후크 |
-| State | 상태 / state | 스테이트 |
-| Props | props (그대로) | 프롭스 |
-| Rendering | 렌더링 | 랜더링 |
-| Debugging | 디버깅 | 디버그 |
-| Deploy | 배포 | 디플로이 |
-| Repository | 저장소 / 레포지토리 | 리포지토리 |
-| Container | 컨테이너 | 콘테이너 |
-| Kubernetes | 쿠버네티스 / K8s | 쿠베르네테스 |
-| Docker | 도커 / Docker | 닥커 |
-| CI/CD | CI/CD (그대로) | 씨아이씨디 |
-| Pipeline | 파이프라인 | 파이프 라인 |
+- who the reader is
+- what the reader likely already knows
+- what knowledge is required to understand the article
+- what the reader should learn from the article
 
-### 코드 요소 표기
-- 함수명, 변수명, 명령어: 백틱 사용
-  - 예: `useState`, `npm install`, `config.js`
-- 파일 경로: 백틱 사용
-  - 예: `src/components/Header.tsx`
-- 키보드 단축키: 백틱 또는 kbd 태그
-  - 예: `Ctrl + C` 또는 <kbd>Ctrl</kbd> + <kbd>C</kbd>
+Do not explain basic concepts unnecessarily when the target reader is expected to know them.
 
----
+Do not omit prerequisite knowledge when it is required to understand the main topic.
 
-## 문장 구조
+Prefer:
 
-### 한 문장 = 한 개념
-**나쁜 예:**
-> "React는 Facebook에서 만든 라이브러리이고 컴포넌트 기반으로 UI를 구성하며 Virtual DOM을 사용해서 성능이 좋습니다."
-
-**좋은 예:**
-> "React는 Facebook에서 만든 UI 라이브러리입니다. 컴포넌트 기반으로 UI를 구성합니다. Virtual DOM을 사용하여 높은 성능을 제공합니다."
-
-### 능동태 사용
-**피동태 (피하기):**
-> "에러가 발생되었습니다"
-
-**능동태 (권장):**
-> "에러가 발생했습니다" 또는 "시스템이 에러를 반환합니다"
-
-### 긍정문 사용
-**부정문 (피하기):**
-> "이 함수는 null을 반환하지 않습니다"
-
-**긍정문 (권장):**
-> "이 함수는 항상 유효한 값을 반환합니다"
-
----
-
-## 구조화
-
-### 제목 계층
-```
-# H1: 글 제목 (하나만)
-## H2: 대분류 섹션
-### H3: 소분류 섹션
-#### H4: 필요시 세부 항목
+```text
+Required context
+→ Main concept
+→ Application
 ```
 
-### 목록 활용
-- **순서가 중요할 때**: 번호 목록 (1, 2, 3)
-- **순서가 없을 때**: 불릿 목록 (-, *)
-- **용어 정의**: 정의 목록 또는 표
+Avoid:
 
-### 정보 강조
-
-| 유형 | 용도 | 마크다운 |
-|------|------|---------|
-| **굵게** | 핵심 키워드 | `**텍스트**` |
-| *기울임* | 용어 첫 등장 | `*텍스트*` |
-| `인라인 코드` | 코드, 명령어 | `` `텍스트` `` |
-| > 인용 | 참고사항, 팁 | `> 텍스트` |
-
-### 주의/팁 박스
-
-```markdown
-> **주의**: 이 작업은 되돌릴 수 없습니다.
-
-> **팁**: `--save-dev` 플래그를 사용하면 개발 의존성으로 설치됩니다.
-
-> **참고**: 공식 문서에서 더 자세한 내용을 확인할 수 있습니다.
+```text
+Definition
+→ Definition
+→ Definition
+→ Eventually reach the actual topic
 ```
 
 ---
 
-## 숫자와 단위
+# 3. Start With the Technical Context
 
-### 숫자 표기
-- 1~9: 상황에 따라 한글 또는 아라비아 숫자
-- 10 이상: 아라비아 숫자 사용
-- 코드/설정 값: 항상 아라비아 숫자
+Introduce the article with a concrete technical situation.
 
-### 단위 표기
-| 항목 | 권장 | 예시 |
-|------|------|------|
-| 파일 크기 | KB, MB, GB | 10MB |
-| 시간 | 초, 분, 시간 | 5분, 500ms |
-| 버전 | v 또는 없이 | v1.0.0 또는 1.0.0 |
+A strong introduction usually answers:
+
+1. What is the topic?
+2. Why did it become relevant?
+3. What will the reader learn?
+
+Prefer:
+
+> While implementing spot-light shadows, I initially reused the directional-light shadow pipeline. The shadow map was generated, but the projected shadow became distorted because the projection model was different.
+
+Avoid generic introductions such as:
+
+> Technology is advancing rapidly.
+
+> Developers face many challenges.
+
+> There are many ways to solve this problem.
+
+> This topic is very important in modern development.
+
+Get to the actual topic quickly.
 
 ---
 
-## 교정 체크리스트
+# 4. One Main Point Per Section
 
-### 글 전체
-- [ ] 제목이 내용을 정확히 반영하는가?
-- [ ] 도입부에서 글의 목적이 명확한가?
-- [ ] 논리적 흐름이 자연스러운가?
-- [ ] 결론이 있는가?
+Each section should communicate one primary idea.
 
-### 문장
-- [ ] 한 문장이 너무 길지 않은가? (40자 이내 권장)
-- [ ] 주어와 서술어가 호응하는가?
-- [ ] 이중 피동이 없는가?
-- [ ] 불필요한 조사(의, 에, 를)가 반복되지 않는가?
+A section should normally answer one question.
 
-### 용어
-- [ ] 용어 표기가 일관적인가?
-- [ ] 처음 등장하는 전문 용어에 설명이 있는가?
-- [ ] 코드 요소에 백틱을 사용했는가?
+Examples:
 
-### 코드
-- [ ] 코드 블록에 언어가 명시되어 있는가?
-- [ ] 코드에 설명 주석이 있는가?
-- [ ] 실행 가능한 코드인가? (검증 필요)
+```text
+Why does this problem happen?
+```
+
+```text
+How does the data move through the pipeline?
+```
+
+```text
+Why was this approach selected?
+```
+
+If a section begins covering multiple independent topics, split it.
+
+Do not split sections merely to create more headings.
+
+---
+
+# 5. Paragraph Style
+
+Keep paragraphs focused and reasonably short.
+
+Prefer:
+
+- one main idea per paragraph
+- direct topic sentences
+- concrete technical statements
+- logical transitions between paragraphs
+
+Avoid:
+
+- one-sentence paragraphs repeated excessively
+- extremely long paragraphs containing several concepts
+- repeated explanations of the same point
+- unnecessary transition phrases
+
+Do not mechanically force every paragraph to the same length.
+
+---
+
+# 6. Sentence Style
+
+Prefer direct and concrete sentences.
+
+Prefer:
+
+> The render thread reads the command after the game thread submits it.
+
+Avoid:
+
+> It can be said that the command may then be processed by the render thread after it has been submitted by the game thread.
+
+Prefer active voice when it improves clarity.
+
+Prefer:
+
+> Unreal stores the reference.
+
+over:
+
+> The reference is stored by Unreal.
+
+Passive voice is acceptable when the actor is irrelevant.
+
+---
+
+# 7. Explain Why, Not Only What
+
+Technical writing should explain the reasoning behind important behavior.
+
+Do not stop at:
+
+> `OuterConeAngle * 2` is used for the FOV.
+
+Explain:
+
+> `OuterConeAngle` represents the angle from the center axis to one side of the cone, while the perspective FOV represents the full angle across the view. Therefore, the projection uses `OuterConeAngle * 2`.
+
+Important technical statements should answer at least one of:
+
+- Why does this happen?
+- Why is this necessary?
+- Why was this approach selected?
+- What behavior does this produce?
+- What trade-off does this introduce?
+
+---
+
+# 8. Explain From Mental Model to Detail
+
+For complex topics, establish a high-level mental model before introducing implementation details.
+
+Prefer:
+
+```text
+System overview
+→ Major components
+→ Data flow
+→ Important implementation details
+```
+
+Avoid starting immediately with internal code when the reader does not yet understand the system.
+
+For simple topics, skip the high-level explanation if it adds no value.
+
+---
+
+# 9. Use Concrete Examples
+
+Prefer examples that demonstrate actual behavior.
+
+Good examples include:
+
+- small code snippets
+- before / after behavior
+- execution flow
+- data transformations
+- error messages
+- real debugging observations
+- diagrams
+- simple numerical examples
+
+Avoid examples that are more complicated than the concept they explain.
+
+Keep the same example throughout a section when possible.
+
+Do not switch between unrelated examples without a reason.
+
+---
+
+# 10. Preserve the Author's Experience
+
+When the source material comes from a real development experience, preserve the author's perspective.
+
+Relevant details may include:
+
+- what the author expected
+- what actually happened
+- initial assumptions
+- failed approaches
+- debugging observations
+- design decisions
+- trade-offs
+- lessons learned
+
+Do not turn every personal engineering story into a generic textbook explanation.
+
+Prefer:
+
+> I first increased the depth bias because the artifact looked like shadow acne. The result did not change, which suggested that the issue was not caused by depth precision.
+
+over:
+
+> To solve shadow problems, depth bias can be adjusted.
+
+Preserve first-person perspective when it is part of the original article style.
+
+---
+
+# 11. Distinguish Facts From Experience
+
+Clearly separate:
+
+- verified technical facts
+- observed behavior
+- interpretation
+- personal opinion
+
+Prefer:
+
+> In this test, the CPU cost increased as the particle count grew.
+
+over:
+
+> This particle system is slow.
+
+Prefer:
+
+> In my project, this structure was easier to maintain.
+
+over:
+
+> This structure is always easier to maintain.
+
+Do not generalize from a single experiment unless there is sufficient evidence.
+
+---
+
+# 12. Avoid Unsupported Certainty
+
+Do not use absolute language without evidence.
+
+Be careful with words such as:
+
+- always
+- never
+- guaranteed
+- fastest
+- best
+- impossible
+- perfectly
+- significantly
+
+Use precise alternatives when appropriate.
+
+For example:
+
+> This can reduce allocations in this path.
+
+instead of:
+
+> This dramatically improves performance.
+
+If the available information is insufficient, state the uncertainty.
+
+---
+
+# 13. Technical Terminology
+
+Use technically accurate terminology.
+
+When introducing an unfamiliar term:
+
+1. name the term
+2. explain it briefly
+3. use the term consistently afterward
+
+Example:
+
+> A **render target view (RTV)** defines how a texture is accessed as a render target. After introducing the abbreviation, this article will use `RTV`.
+
+Avoid repeatedly redefining terminology.
+
+Do not replace precise technical terms with vague language merely to make the article sound simpler.
+
+---
+
+# 14. Naming and Formatting
+
+Use inline code formatting for:
+
+- variables
+- functions
+- classes
+- APIs
+- commands
+- file paths
+- configuration keys
+- short expressions
+
+Example:
+
+> `CreateMeshSection()` creates a new procedural mesh section.
+
+Use the exact casing used by the technology.
+
+Prefer:
+
+`TObjectPtr`
+
+not:
+
+`tobjectptr`
+
+Follow `references/code-blocks.md` for full code formatting rules.
+
+---
+
+# 15. Headings
+
+Headings should communicate what the section actually explains.
+
+Prefer descriptive headings.
+
+Good:
+
+```text
+Why Directional and Spot Lights Need Different Projections
+```
+
+```text
+The FOV Was Calculated From the Half Cone Angle
+```
+
+```text
+Why the First Fix Did Not Work
+```
+
+Less useful:
+
+```text
+Background
+```
+
+```text
+Details
+```
+
+```text
+Additional Information
+```
+
+Generic headings are acceptable when they improve a tutorial or reference-style structure.
+
+Do not make headings unnecessarily long.
+
+---
+
+# 16. Lists
+
+Use lists when items are genuinely parallel.
+
+Good uses:
+
+- prerequisites
+- steps
+- requirements
+- pros and cons
+- checklist items
+- multiple causes
+
+Use prose when ideas require explanation or causal relationships.
+
+Avoid turning every paragraph into bullet points.
+
+Prefer:
+
+> The problem occurred for two reasons. First, the projection used the wrong FOV. Second, the light-space transform used a stale matrix.
+
+when the relationship between the ideas matters.
+
+---
+
+# 17. Tables
+
+Use tables for structured comparisons.
+
+Good uses include:
+
+- feature comparisons
+- before / after states
+- configuration values
+- category differences
+- benchmark results
+
+Avoid tables when cells require long paragraphs.
+
+Do not use a table merely to make the article look organized.
+
+---
+
+# 18. Diagrams
+
+Use diagrams when they explain relationships better than prose.
+
+Recommended uses:
+
+- architecture
+- execution order
+- pipelines
+- ownership
+- state transitions
+- request flow
+- CPU / GPU flow
+- data transformations
+
+Prefer simple diagrams.
+
+Example:
+
+```text
+Game Thread
+    ↓
+Render Command Queue
+    ↓
+Render Thread
+    ↓
+GPU
+```
+
+Do not create diagrams that simply repeat nearby text.
+
+---
+
+# 19. Repetition
+
+Remove repeated explanations unless repetition is necessary for understanding.
+
+Common repetition patterns to remove:
+
+- explaining the conclusion again immediately after explaining it
+- repeating the same definition in multiple sections
+- restating code behavior in comments, prose, and summary
+- repeating the introduction in the conclusion
+
+When a concept must be referenced again, link it logically rather than re-explaining it completely.
+
+---
+
+# 20. Concision
+
+Remove content that does not contribute to:
+
+- understanding the problem
+- understanding the technical mechanism
+- reproducing the result
+- understanding the decision
+- understanding the lesson
+
+Delete filler phrases such as:
+
+- It is worth noting that
+- As mentioned earlier
+- It is important to understand that
+- Basically
+- Obviously
+- Simply
+- Needless to say
+
+Use them only when they genuinely improve meaning.
+
+Do not remove necessary technical context merely to shorten the article.
+
+---
+
+# 21. Avoid Artificial Simplicity
+
+Do not describe a complex task as easy unless it actually is.
+
+Avoid:
+
+> Simply create a new render target.
+
+> Just change the matrix.
+
+Prefer:
+
+> Create a render target for the shadow depth pass.
+
+This keeps the explanation direct without implying that the operation is trivial.
+
+---
+
+# 22. Transitions
+
+Use natural logical transitions.
+
+Prefer transitions based on technical relationships:
+
+```text
+Because...
+Therefore...
+However...
+This means...
+As a result...
+```
+
+Avoid excessive transition phrases that add no information.
+
+Examples to limit:
+
+```text
+Now let's take a look at...
+Next, let's explore...
+With that said...
+Moving on...
+```
+
+---
+
+# 23. Introductions
+
+Keep introductions focused.
+
+The introduction should usually contain:
+
+- technical context
+- the problem or question
+- the scope of the article
+
+Do not summarize every section in advance unless the article is long enough to require a roadmap.
+
+Avoid overly dramatic hooks.
+
+---
+
+# 24. Conclusions
+
+The conclusion should answer:
+
+> What should the reader remember?
+
+Good conclusions may include:
+
+- the root cause
+- the main mechanism
+- the final design decision
+- an important trade-off
+- a reusable lesson
+
+Avoid repeating the entire article.
+
+Do not introduce major new technical information in the conclusion.
+
+---
+
+# 25. SEO Without Damaging Writing
+
+SEO should improve discoverability without making the article unnatural.
+
+Use primary keywords naturally in:
+
+- the title
+- introduction
+- relevant headings
+- meta description
+
+Do not:
+
+- repeat keywords unnaturally
+- add irrelevant keywords
+- distort terminology for search volume
+- create clickbait titles
+- repeat the title phrase throughout the article
+
+Technical correctness and readability always take priority over SEO.
+
+---
+
+# 26. Language
+
+Write in the language requested by the user.
+
+If the user does not specify a language, follow the language of the source material or conversation.
+
+Keep:
+
+- code
+- API names
+- class names
+- function names
+- official technology names
+
+in their original form unless a conventional localized term exists.
+
+Avoid unnecessary mixing of languages in normal prose.
+
+---
+
+# 27. Korean Technical Writing
+
+When writing in Korean:
+
+- keep sentences direct
+- avoid excessive nominalized expressions
+- avoid unnecessary English when a natural Korean expression exists
+- preserve official API and technology names in English
+- use consistent terminology throughout the article
+
+Prefer:
+
+> 렌더 스레드는 큐에 저장된 명령을 순서대로 처리합니다.
+
+over:
+
+> 렌더 스레드에서는 큐에 저장되어 있는 명령들에 대한 순차적인 처리가 이루어집니다.
+
+Prefer natural developer terminology over forced translation.
+
+Example:
+
+> `Tick()`에서 매 프레임 배열을 새로 생성하면 불필요한 할당이 발생할 수 있습니다.
+
+Do not translate identifiers such as `Tick`, `UObject`, or `RenderThread` when doing so makes the explanation less clear.
+
+---
+
+# 28. Existing Drafts
+
+When improving an existing article:
+
+1. Preserve the author's technical intent.
+2. Preserve meaningful personal experience.
+3. Fix structure before performing aggressive sentence rewrites.
+4. Remove repetition.
+5. Improve unclear transitions.
+6. Flag potentially incorrect claims instead of silently inventing corrections.
+7. Do not rewrite the article into a different category unless requested.
+8. Preserve the author's voice when it does not conflict with this guide.
+
+The goal is to improve the author's article, not replace the author.
+
+---
+
+# 29. Avoid Generic AI Writing Patterns
+
+Avoid phrases and structures that make the article sound mechanically generated.
+
+Examples:
+
+> In this article, we will explore...
+
+> Let's dive in.
+
+> This powerful feature allows developers to...
+
+> There are several key benefits.
+
+> In today's fast-paced world...
+
+> By leveraging this technology...
+
+Use concrete technical statements instead.
+
+Prefer:
+
+> `TObjectPtr` was introduced to make `UObject` references visible to Unreal's pointer tracking infrastructure while retaining pointer-like usage.
+
+---
+
+# 30. Final Style Check
+
+Before finalizing an article, verify:
+
+- [ ] The opening reaches the technical topic quickly.
+- [ ] The intended reader is clear.
+- [ ] Each section has a clear purpose.
+- [ ] Technical terms are used consistently.
+- [ ] Important claims distinguish facts from interpretation.
+- [ ] Examples remain consistent.
+- [ ] Code is explained in context.
+- [ ] Unnecessary background information has been removed.
+- [ ] Repetition has been removed.
+- [ ] Headings accurately describe their sections.
+- [ ] The conclusion contains a useful takeaway.
+- [ ] SEO does not reduce readability.
+- [ ] The article follows Correct, Clear, and Concise principles.
+
+# Final Rule
+
+Write for understanding, not for length.
+
+A good technical article gives the reader enough context to understand **what happened, why it happened, and why the solution works**, without making them read information that does not contribute to that understanding.
