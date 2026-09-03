@@ -1,9 +1,6 @@
 ---
 name: Code Block Style Guide
-description: >
-Code block formatting and explanation guidelines for Techwriter.
----
-
+description: Code block formatting and explanation guidelines for Techwriter.
 ---
 
 # Code Block Style Guide

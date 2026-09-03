@@ -1,9 +1,6 @@
 ---
 name: Techwriter Style Guide
-description: >
-Writing style, tone, readability, and structure guidelines for Techwriter.
----
-
+description: Writing style, tone, readability, and structure guidelines for Techwriter.
 ---
 
 # Techwriter Style Guide
