@@ -1,7 +1,6 @@
 ---
 name: techwriter
-description: >
-    Write, improve, and review developer-focused technical blog posts from notes, code, debugging records, research, and implementation experiences.
+description: Write, improve, and review developer-focused technical blog posts from notes, code, debugging records, research, and implementation experiences.
 license: MIT
 ---
 
