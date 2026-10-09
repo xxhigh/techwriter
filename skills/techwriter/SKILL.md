@@ -138,6 +138,7 @@ Do not automatically assign another category unless the user asks for category s
 - When code is included, follow `references/code-blocks.md`.
 - Preserve the author's technical reasoning and experience.
 - Keep examples relevant to the article's main topic.
+- Write section headings in the article's language. The templates use English heading names only to describe structure; in a Korean article, "Prerequisites" becomes "사전 준비" and "Why It Worked" becomes "왜 해결되었는가". Mixed-language headings read as unfinished.
 
 ### 3. Editing
 
@@ -146,6 +147,7 @@ Do not automatically assign another category unless the user asks for category s
 - Preserve technical accuracy.
 - Ensure terminology remains consistent.
 - Check that headings accurately represent their sections.
+- Scan the prose for identifiers that are not yet in inline code: variables, functions, hooks, methods, CLI commands, file names, configuration keys. Names such as `useMemo`, `Array.prototype.flatMap` or `docker compose` are easy to leave bare when they appear in the middle of a sentence.
 
 ### 4. Optimization
 
@@ -166,6 +168,7 @@ After completing the article, evaluate it using the following checklist.
 | **Example Consistency**         | Are examples and code snippets consistent throughout the article?   |
 | **Missing / Redundant Content** | Is any necessary information missing or unnecessarily repeated?     |
 | **3C Principles**               | Does the article follow Correct, Clear, and Concise principles?     |
+| **Category Structure**          | Are the sections that define the category present? tutorial: Prerequisites, Steps, Result. trouble-shooting: Root Cause, Solution, Why It Worked. deep-dive: Architecture or Data Flow, Trade-offs. |
 
 If an issue is found, revise the article before producing the final output.
 
@@ -200,7 +203,7 @@ Example:
 
 ### Meta Description
 
-- Prefer approximately 120–160 characters.
+- Prefer approximately 100–160 characters. Korean descriptions carry more meaning per character, so a natural Korean description often lands near 100; count the characters rather than guessing.
 - Summarize the main topic and reader benefit.
 - Include the primary keyword naturally.
 - Avoid unnecessary calls to action for purely technical articles.
@@ -252,7 +255,9 @@ Before producing the final output, verify:
 - [ ] Code examples are runnable when the article claims they are runnable.
 - [ ] Images include meaningful alt text when images are used.
 - [ ] Links are valid when link verification is available.
-- [ ] The article follows the selected category.
+- [ ] The article follows the selected category, including the sections that define it.
+- [ ] Section headings are written in the article's language.
+- [ ] Identifiers in prose are wrapped in inline code.
 - [ ] The article follows the 3C principles.
 
 ## Reference Documents

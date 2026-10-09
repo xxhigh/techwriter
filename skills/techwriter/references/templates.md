@@ -5,6 +5,8 @@ This document defines the recommended article structure for each category.
 Templates are guidelines, not rigid rules.
 Adapt the structure when the source material requires a different flow.
 
+The heading names below are English because this document is. Write the article's headings in the article's language; do not copy English heading names into a Korean article.
+
 Always prioritize:
 
 **Correct > Clear > Concise**
@@ -224,6 +226,7 @@ Before starting, make sure you have:
 
 - Optimize for reproducibility.
 - Clearly state environment and version requirements when relevant.
+- List every tool the steps invoke: runtime, package manager, CLI, container engine, editor extension. If a step runs `npm install`, Node.js and npm belong in Prerequisites even when the application itself runs inside a container. A reader who lacks one tool cannot finish the tutorial, so a missing prerequisite is a reproducibility failure.
 - Present steps in execution order.
 - Do not skip essential setup.
 - Explain why each important step is necessary.
@@ -366,7 +369,7 @@ Do not present an assumption as the root cause.
 - Remove failed attempts that add no useful information.
 - Prefer evidence over speculation.
 - Include logs, errors, screenshots, or code only when they help explain the diagnosis.
-- Explain why the final solution works.
+- Explain why the final solution works, in its own "Why It Worked" section. "Solution" shows what changed; "Why It Worked" explains the mechanism by which that change removes the root cause. Folding the explanation into the solution code comments is the most common omission in this category.
 - Do not confuse correlation with causation.
 - Mention if the root cause remains uncertain.
 
@@ -514,6 +517,7 @@ Do not invent performance numbers.
 ## Guidelines
 
 - Prioritize internal mechanisms over usage instructions.
+- Always include a Trade-offs section and at least one of Architecture or Data Flow, even in a short deep-dive. These sections are what separate a deep-dive from a default article; without them the article becomes an explanation of usage.
 - Explain why the system is designed this way.
 - Build from a high-level mental model toward implementation details.
 - Clearly distinguish conceptual behavior from implementation-specific behavior.
