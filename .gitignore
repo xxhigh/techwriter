@@ -8,3 +8,6 @@ node_modules/
 
 # Python
 __pycache__/
+# evaluation workspaces (large, regenerable)
+skills/techwriter-workspace/
+skills/techwriter-eval/
