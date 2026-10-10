@@ -494,7 +494,7 @@ Each rule below is taken from `SKILL.md`, `style-guide.md`, `code-blocks.md` or 
 | No unsupported-certainty words (style guide 12) | 100% | 99% |
 | No generic headings like "Background" (style guide 15) | 100% | 99% |
 | No nominalized / double-passive Korean (style guide 27) | 96% | 99% |
-| Identifiers in prose use inline code, 80%+ (style guide 14) | 77% | 67% |
+| Identifiers in prose use inline code, 80%+ (style guide 14) | 99% | 90% |
 | Has a Takeaway / Conclusion section | 99% | 94% |
 | Section headings in the article language (style guide 26) | 98% | 98% |
 | TIL: "What I Learned" section | 94% | 22% |
@@ -504,7 +504,7 @@ Each rule below is taken from `SKILL.md`, `style-guide.md`, `code-blocks.md` or 
 | Trouble-shooting: Solution section | 100% | 100% |
 | Trouble-shooting: "Why It Worked" section | 94% | 0% |
 | Deep-dive: Trade-offs section | 88% | 19% |
-| **All rules (mean per article)** | **94%** | **74%** |
+| **All rules (mean per article)** | **95%** | **75%** |
 
 ### Blind pairwise comparison
 
@@ -548,7 +548,7 @@ Judge confidence: 36 high, 60 medium, 4 low.
 - **The skill reduces invented facts.** The judges repeatedly flagged no-skill articles for stating experiences, numbers or command outputs the author never supplied, and credited skill articles for marking what was not measured. This shows up as the fit-to-request gap (4.62 against 3.83).
 - **Technical accuracy improved modestly** (4.73 against 4.08). Both conditions made real errors; the skill does not replace fact-checking.
 - **The skill does not make articles longer.** Skill articles are slightly shorter and have fewer headings; the difference is structure, not volume. No-skill articles often went deeper on a topic and lost on concision.
-- **Rules the skill still does not enforce reliably:** the meta description lands in the 100–160 range only 47% of the time (every miss is under 100 characters, most between 80 and 99), and 77% of articles wrap 80% or more of their identifiers in inline code. The description rule was reworded after this run (aim for 110–150, add a concrete detail when short) and has not been re-measured. A bundled check script would be the next step.
+- **One rule needed a rewording, and the rewording was verified.** In this run the meta description landed in the 100–160 range only 47% of the time; every miss was under 100 characters, most between 80 and 99. The rule now says to aim for 110–150 and add a concrete detail when a draft is short. Re-running 20 of the 50 prompts with the revised skill moved that rule from 53% to 100% (20 of 20, mean 117 characters) with no other rule regressing. The table above still shows the pre-revision number.
 - **Cost.** Skill articles take about 21% more time and 29% more tokens, because the model reads the reference files before writing.
 
 ### Limitations
