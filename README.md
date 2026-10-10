@@ -504,8 +504,7 @@ Each rule below is taken from `SKILL.md`, `style-guide.md`, `code-blocks.md` or 
 | Trouble-shooting: Solution section | 100% | 100% |
 | Trouble-shooting: "Why It Worked" section | 94% | 0% |
 | Deep-dive: Trade-offs section | 88% | 19% |
-| Deep-dive: Architecture / Data Flow section | 25% | 25% |
-| **All rules (mean per article)** | **93%** | **73%** |
+| **All rules (mean per article)** | **94%** | **74%** |
 
 ### Blind pairwise comparison
 
@@ -549,7 +548,7 @@ Judge confidence: 36 high, 60 medium, 4 low.
 - **The skill reduces invented facts.** The judges repeatedly flagged no-skill articles for stating experiences, numbers or command outputs the author never supplied, and credited skill articles for marking what was not measured. This shows up as the fit-to-request gap (4.62 against 3.83).
 - **Technical accuracy improved modestly** (4.73 against 4.08). Both conditions made real errors; the skill does not replace fact-checking.
 - **The skill does not make articles longer.** Skill articles are slightly shorter and have fewer headings; the difference is structure, not volume. No-skill articles often went deeper on a topic and lost on concision.
-- **Rules the skill still does not enforce reliably:** the meta description lands in the 100–160 range only 47% of the time (most misses are just under 100 characters), 77% of articles wrap 80% or more of their identifiers in inline code, and only 25% of deep-dives have a separate Architecture or Data Flow section. A bundled check script would be the next step.
+- **Rules the skill still does not enforce reliably:** the meta description lands in the 100–160 range only 47% of the time (every miss is under 100 characters, most between 80 and 99), and 77% of articles wrap 80% or more of their identifiers in inline code. The description rule was reworded after this run (aim for 110–150, add a concrete detail when short) and has not been re-measured. A bundled check script would be the next step.
 - **Cost.** Skill articles take about 21% more time and 29% more tokens, because the model reads the reference files before writing.
 
 ### Limitations
@@ -558,6 +557,7 @@ Judge confidence: 36 high, 60 medium, 4 low.
 - The judge rewards frontmatter and structure heavily. A reader who only cares about the body text would see a smaller gap.
 - The baseline is "no instructions at all". Adding a line like "include frontmatter and tag every code block" to the request would close part of the gap; the skill's value is that those instructions travel with it.
 - Rule checks are regex heuristics and measure form, not substance. The blind comparison is the only quality signal here.
+- The deep-dive rule "at least one Architecture or Data Flow section" is not in the table: both conditions name that section descriptively ("전체 그림", "실행 흐름", "Hidden class: 객체 모양을 공유하는 방법"), so a heading regex measures vocabulary, not structure.
 
 The evaluation scripts and generated articles are not part of the repository.
 

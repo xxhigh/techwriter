@@ -203,7 +203,7 @@ Example:
 
 ### Meta Description
 
-- Prefer approximately 100–160 characters. Korean descriptions carry more meaning per character, so a natural Korean description often lands near 100; count the characters rather than guessing.
+- Aim for 110–150 characters (hard range 100–160). Count the characters after writing; a first-draft Korean description usually lands at 80–99, so when it is under 100 add one concrete detail (the key constraint, the result the reader gets, or the tool version) instead of a filler phrase.
 - Summarize the main topic and reader benefit.
 - Include the primary keyword naturally.
 - Avoid unnecessary calls to action for purely technical articles.
