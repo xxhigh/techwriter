@@ -473,79 +473,89 @@ The goal is not only to rewrite the notes, but to preserve the engineering reaso
 
 ## Evaluation
 
-To check whether the skill changes the output in a measurable way, the same four requests were run with and without the skill, two runs each (8 articles per condition). Both conditions used Claude Sonnet as the writing model and received only the request plus "save the article as one `.md` file". The requests were in Korean, one per category: TIL (`Array.prototype.flatMap`), tutorial (Docker Compose + Node.js + PostgreSQL), trouble-shooting (a `useEffect` infinite loop, with the author's two failed attempts supplied), deep-dive (the JavaScript event loop).
+To check whether the skill changes the output in a measurable way, 50 Korean blog requests were each run twice with the skill and twice without it: 200 articles, 100 blind pairs. Both conditions used Claude Sonnet as the writing model and received only the request plus "save the article as one `.md` file". The requests cover every category the skill supports (TIL 9, tutorial 9, trouble-shooting 8, deep-dive 8, review 8, default 8) and range from a two-line TIL to a full deployment tutorial.
 
 ### Rule compliance (automated)
 
-Each rule below is taken from `SKILL.md`, `style-guide.md`, `code-blocks.md` or `templates.md` and checked with a regex-based script. Category-structure rules apply only to the two articles of that category.
+Each rule below is taken from `SKILL.md`, `style-guide.md`, `code-blocks.md` or `templates.md` and checked with a regex-based script over all 100 articles per condition. Category-structure rules apply only to the articles of that category.
 
 | Rule (source) | With skill | Without skill |
 |---|---|---|
 | Frontmatter has `title`, `category`, `tags`, `description` | 100% | 0% |
-| Title length 30–60 chars | 100% | 100% |
-| Meta description 100–160 chars | 88% | 0% |
+| Title length 30–60 chars | 89% | 89% |
+| Meta description 100–160 chars | 47% | 0% |
 | 3–8 tags | 100% | 0% |
-| Every code block has a language identifier | 100% | 38% |
-| Execution output kept out of source blocks | 100% | 88% |
+| Every code block has a language identifier | 95% | 56% |
+| Execution output kept out of source blocks | 100% | 99% |
 | No manual `+`/`-` markers outside `diff` blocks | 100% | 100% |
 | No template residue such as `{Title}` | 100% | 100% |
 | Self-review table not included in the article | 100% | 100% |
 | No filler / generic-AI phrases (style guide 3, 20, 29) | 100% | 100% |
-| No unsupported-certainty words (style guide 12) | 100% | 100% |
-| No generic headings like "Background" (style guide 15) | 100% | 100% |
-| No nominalized / double-passive Korean (style guide 27) | 88% | 100% |
-| Identifiers in prose use inline code, 80%+ (style guide 14) | 50% | 13% |
-| Has a Takeaway / Conclusion section | 100% | 100% |
-| Section headings in the article language (style guide 26) | 100% | 100% |
-| TIL: "What I Learned" section | 100% | 0% |
-| Tutorial: Prerequisites section | 100% | 100% |
+| No unsupported-certainty words (style guide 12) | 100% | 99% |
+| No generic headings like "Background" (style guide 15) | 100% | 99% |
+| No nominalized / double-passive Korean (style guide 27) | 96% | 99% |
+| Identifiers in prose use inline code, 80%+ (style guide 14) | 77% | 67% |
+| Has a Takeaway / Conclusion section | 99% | 94% |
+| Section headings in the article language (style guide 26) | 98% | 98% |
+| TIL: "What I Learned" section | 94% | 22% |
+| Tutorial: Prerequisites section | 100% | 67% |
 | Tutorial: numbered steps | 100% | 100% |
 | Trouble-shooting: Root Cause section | 100% | 100% |
 | Trouble-shooting: Solution section | 100% | 100% |
-| Trouble-shooting: "Why It Worked" section | 100% | 0% |
-| Deep-dive: Trade-offs section | 100% | 0% |
-| Deep-dive: Architecture / Data Flow section | 50% | 0% |
-| **All rules (mean per article)** | **95%** | **69%** |
+| Trouble-shooting: "Why It Worked" section | 94% | 0% |
+| Deep-dive: Trade-offs section | 88% | 19% |
+| Deep-dive: Architecture / Data Flow section | 25% | 25% |
+| **All rules (mean per article)** | **93%** | **73%** |
 
 ### Blind pairwise comparison
 
-Claude Opus judged each of the 8 pairs without knowing which article used the skill (A/B order randomized), scoring seven dimensions from 1 to 5 and picking a winner.
+Claude Opus judged each of the 100 pairs without knowing which article used the skill (A/B order randomized), scoring seven dimensions from 1 to 5 and picking a winner.
 
 | Result | With skill | Without skill |
 |---|---|---|
-| Wins (8 pairs) | **8** | 0 |
+| Wins (100 pairs) | **98** | 1 (ties: 1) |
 
-Judge confidence: 5 high, 3 medium, 0 low.
+Judge confidence: 36 high, 60 medium, 4 low.
+
+| Category | Pairs | Skill wins | No-skill wins | Ties |
+|---|---|---|---|---|
+| TIL | 18 | 18 | 0 | 0 |
+| tutorial | 18 | 17 | 0 | 1 |
+| trouble-shooting | 16 | 16 | 0 | 0 |
+| deep-dive | 16 | 16 | 0 | 0 |
+| review | 16 | 16 | 0 | 0 |
+| default | 16 | 15 | 1 | 0 |
 
 | Dimension (mean, 1–5) | With skill | Without skill |
 |---|---|---|
-| technical accuracy | 4.88 | 4.13 |
-| clarity | 5.00 | 4.00 |
-| concision | 4.13 | 3.38 |
-| structure | 4.75 | 3.88 |
-| code quality | 4.75 | 3.25 |
-| fit to request | 4.50 | 4.25 |
-| publish readiness | 4.63 | 2.63 |
+| technical accuracy | 4.73 | 4.08 |
+| clarity | 4.80 | 4.52 |
+| concision | 4.05 | 3.72 |
+| structure | 4.84 | 4.03 |
+| code quality | 4.62 | 3.58 |
+| fit to request | 4.62 | 3.83 |
+| publish readiness | 4.61 | 2.19 |
 
 ### Cost
 
 | Condition (mean per article) | Time | Tokens | Length |
 |---|---|---|---|
-| With skill | 58 s | 54k | 5,339 chars |
-| Without skill | 47 s | 41k | 5,635 chars |
+| With skill | 66 s | 55k | 5,488 chars |
+| Without skill | 55 s | 43k | 5,696 chars |
 
 ### What the numbers say
 
-- **Publishability and code hygiene are the largest differences.** Without the skill, no article had frontmatter, 38% tagged every code block with a language, and none had the "What I Learned" or "Why It Worked" sections the categories call for.
-- **Technical accuracy also improved** (4.88 against 4.13). The judge found concrete errors in the no-skill articles: a Docker tutorial that said Node.js was not needed and then ran `npm install`, a `docker compose up --build` fix that leaves a stale `node_modules` volume in place, and a troubleshooting post that described the loop as happening only "in specific conditions".
-- **The skill does not make articles longer.** Skill articles are slightly shorter on average; the difference is structure, not volume.
-- **Rules the skill still does not enforce reliably:** only half the articles wrap 80% or more of their identifiers in inline code, and only half the deep-dives have a separate Architecture or Data Flow section. A bundled check script would be the next step.
-- **Cost.** Skill articles take roughly 25% more time and 30% more tokens, because the model reads the reference files before writing.
+- **Publishability is the largest difference.** Without the skill, not one of 100 articles had frontmatter, 56% tagged every code block with a language, and the category sections the templates call for ("What I Learned", "Why It Worked", "Trade-offs") appeared in a minority of articles. The judge named missing frontmatter as the deciding factor in most no-skill losses.
+- **The skill reduces invented facts.** The judges repeatedly flagged no-skill articles for stating experiences, numbers or command outputs the author never supplied, and credited skill articles for marking what was not measured. This shows up as the fit-to-request gap (4.62 against 3.83).
+- **Technical accuracy improved modestly** (4.73 against 4.08). Both conditions made real errors; the skill does not replace fact-checking.
+- **The skill does not make articles longer.** Skill articles are slightly shorter and have fewer headings; the difference is structure, not volume. No-skill articles often went deeper on a topic and lost on concision.
+- **Rules the skill still does not enforce reliably:** the meta description lands in the 100–160 range only 47% of the time (most misses are just under 100 characters), 77% of articles wrap 80% or more of their identifiers in inline code, and only 25% of deep-dives have a separate Architecture or Data Flow section. A bundled check script would be the next step.
+- **Cost.** Skill articles take about 21% more time and 29% more tokens, because the model reads the reference files before writing.
 
 ### Limitations
 
-- Eight articles per condition; differences under about 10 percentage points are noise.
-- The judge is an LLM; confidence per verdict is listed above.
+- One judge model, one verdict per pair. The confidence split above is the judge's own estimate.
+- The judge rewards frontmatter and structure heavily. A reader who only cares about the body text would see a smaller gap.
 - The baseline is "no instructions at all". Adding a line like "include frontmatter and tag every code block" to the request would close part of the gap; the skill's value is that those instructions travel with it.
 - Rule checks are regex heuristics and measure form, not substance. The blind comparison is the only quality signal here.
 
